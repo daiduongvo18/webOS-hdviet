@@ -5,11 +5,11 @@
 */
 
 enyo.kind({
-	name: "myapp.Application",
+	name: "hdviet.Application",
 	kind: "enyo.Application",
-	view: "myapp.MainView"
+	view: "hdviet.MainView"
 });
 
 enyo.ready(function () {
-	new myapp.Application({name: "app"});
+	new hdviet.Application({name: "app"});
 });

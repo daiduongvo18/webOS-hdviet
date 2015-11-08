@@ -1,5 +1,24 @@
-/**
-	For simple applications, you might define all of your models, collections,
-	and sources in this file.  For more complex applications, you might choose to separate
-	these kind definitions into multiple files under this folder.
-*/
+enyo.kind({
+    name: 'hdviet.Source',
+    kind: 'enyo.JsonpSource',
+    urlRoot: 'https://api-v2.hdviet.com/',
+    fetch: function(rec, opts) {
+    	opts.callbackName = 'jsoncallback';
+		opts.params = enyo.clone(rec.params);
+        this.inherited(arguments);
+    }
+});
+
+enyo.kind({
+	name:'hdviet.MovieModel',
+	kind:'enyo.Model',
+	readOnly: true,
+	source: 'hdviet',
+	attributes: {
+		poster: function() {
+			return this.get('Cover') ? this.get('Cover') : this.get('Poster100x149');
+		}
+	}
+});
+
+enyo.store.addSources({hdviet: 'hdviet.Source'});

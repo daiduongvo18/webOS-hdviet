@@ -1,3 +1,4 @@
-enyo.depends(
-	"data.js"
+enyo.depends(	
+	"data.js",
+	"collection.js"
 );
