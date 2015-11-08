@@ -9,6 +9,8 @@ enyo.kind({
     }
 });
 
+// https://api-v2.hdviet.com/movie?ep=1&movieid=11029&sign=sign&sequence=0
+// https://api-v2.hdviet.com/movie/play?ep=1&movieid=11029&sign=sign&sequence=0
 enyo.kind({
 	name:'hdviet.MovieModel',
 	kind:'enyo.Model',

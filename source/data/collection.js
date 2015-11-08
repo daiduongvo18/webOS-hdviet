@@ -5,7 +5,19 @@ enyo.kind({
     defaultSource: 'hdviet',
     options: {
 		parse: true
-	}	
+	},
+	fetch: function(opts) {
+        this.set('status', 'start');
+        this.inherited(arguments);
+    },
+    didFetch: function() {
+        this.inherited(arguments);
+        this.set('status', 'stop');
+    },
+    didFail: function() {
+        this.inherited(arguments);
+        this.set('status', 'stop');
+    }
 });
 
 enyo.kind({
